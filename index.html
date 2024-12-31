@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - tsParticles Fireworks 2.0</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+   <!-- tsParticles container -->
+   <div id="tsparticles"></div>
+
+   <!-- 音频播放器组件 -->
+   <audio loop id="audio" autoplay preload="auto">
+       <source src="media/song.mp3" type="audio/mp3">
+       该浏览器不支持audio属性
+   </audio>
+
+   <script type="text/javascript">
+       // 页面加载后自动播放音频
+       document.addEventListener('DOMContentLoaded', function () {
+           function audioAutoPlay() {
+               var audio = document.getElementById('audio');
+               audio.play();
+               document.addEventListener("WeixinJSBridgeReady", function () {
+                   audio.play();
+               }, false);
+           }
+           audioAutoPlay();
+       });
+
+       // 触摸屏幕时播放音频
+       document.addEventListener('touchstart', function () {
+           var audio = document.getElementById('audio');
+           audio.play();
+       });
+   </script>
+
+   <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+   <script src='https://cdn.jsdelivr.net/npm/tsparticles@1.34.0/tsparticles.min.js'></script>
+   <script src="./script.js"></script>
+
+</body>
+</html>
